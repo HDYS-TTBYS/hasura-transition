@@ -1,0 +1,40 @@
+table:
+  name: news
+  schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - id
+    - content
+    - created_at
+  role: staff
+select_permissions:
+- permission:
+    columns:
+    - content
+    - created_at
+    - id
+    filter: {}
+  role: anonymous
+- permission:
+    columns:
+    - id
+    - content
+    - created_at
+    filter: {}
+  role: staff
+update_permissions:
+- permission:
+    check: {}
+    columns:
+    - id
+    - content
+    - created_at
+    filter: {}
+  role: staff
+delete_permissions:
+- permission:
+    filter: {}
+  role: staff
